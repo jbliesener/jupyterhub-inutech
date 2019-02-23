@@ -76,18 +76,18 @@ c.JupyterHub.db_url = 'postgresql://postgres:{password}@{host}/{db}'.format(
 )
 
 # Whitlelist users and admins
-c.Authenticator.whitelist = whitelist = set()
-c.Authenticator.admin_users = admin = set()
+#c.Authenticator.whitelist = whitelist = set()
+c.Authenticator.admin_users = admin = set('jorg.bliesener')
 c.JupyterHub.admin_access = True
-pwd = os.path.dirname(__file__)
-with open(os.path.join(pwd, 'userlist')) as f:
-    for line in f:
-        if not line:
-            continue
-        parts = line.split()
-        # in case of newline at the end of userlist file
-        if len(parts) >= 1:
-            name = parts[0]
-            whitelist.add(name)
-            if len(parts) > 1 and parts[1] == 'admin':
-                admin.add(name)
+# pwd = os.path.dirname(__file__)
+# with open(os.path.join(pwd, 'userlist')) as f:
+#     for line in f:
+#         if not line:
+#             continue
+#         parts = line.split()
+#         # in case of newline at the end of userlist file
+#         if len(parts) >= 1:
+#             name = parts[0]
+#             whitelist.add(name)
+#             if len(parts) > 1 and parts[1] == 'admin':
+#                 admin.add(name)
